@@ -1,5 +1,5 @@
-FROM ubuntu:trusty
-MAINTAINER cedric@zestprod.com
+FROM ubuntu:xenial
+MAINTAINER marco@astervox.com
 RUN apt-get update
 RUN apt-get install -y apache2
 RUN apt-get install -y \
