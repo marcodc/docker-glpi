@@ -6,7 +6,7 @@
 
 APACHE_DIR="/var/www/html"
 GLPI_DIR="${APACHE_DIR}/glpi"
-GLPI_SOURCE_URL=${GLPI_SOURCE_URL:-"https://forge.glpi-project.org/attachments/download/2020/glpi-0.85.4.tar.gz"}
+GLPI_SOURCE_URL=${GLPI_SOURCE_URL:-"https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz"}
 
 ### INSTALL GLPI IF NOT INSTALLED ALREADY ######################################
 
@@ -15,8 +15,8 @@ if [ "$(ls -A $GLPI_DIR)" ]; then
 else
   echo '-----------> Install GLPI'
   echo "Using ${GLPI_SOURCE_URL}"
-  wget -O /tmp/glpi.tar.gz $GLPI_SOURCE_URL --no-check-certificate
-  tar -C $APACHE_DIR -xzf /tmp/glpi.tar.gz
+  wget -O /tmp/glpi.tgz $GLPI_SOURCE_URL --no-check-certificate
+  tar -C $APACHE_DIR -xzf /tmp/glpi.tgz
   chown -R www-data $GLPI_DIR
 fi
 
