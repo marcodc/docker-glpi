@@ -10,7 +10,7 @@ You can:
 
 ## Deploy GLPI only (no database)
 
-```docker run -it -d -p 80:80 driket54/glpi```
+```docker run -it -d -p 80:80 opscontrol/glpi```
 
 ## Deploy with docker-compose
 
@@ -22,7 +22,7 @@ You can deploy GLPI + database by creating 2 files:
 
 ```yml
 glpi:
-  image: driket54/glpi
+  image: opscontrol/glpi
   ports:
     - "8090:80"
   links:
@@ -39,11 +39,11 @@ mysql:
 ### glpi.env
 
 ```env
-MYSQL_ROOT_PASSWORD=rootpasswd
+MYSQL_ROOT_PASSWORD=opscontrol
 MYSQL_DATABASE=glpi
 MYSQL_USER=glpi
-MYSQL_PASSWORD=glpipaswd
-GLPI_SOURCE_URL=https://forge.glpi-project.org/attachments/download/2020/glpi-0.85.4.tar.gz
+MYSQL_PASSWORD=opscontrol
+GLPI_SOURCE_URL=https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz
 ```
 
 ### Run docker-compose
@@ -74,11 +74,11 @@ Basically, you need to create a data container that won't be destroyed at each d
 
 ### How can I install a different version of GLPI?
 
-- Choose a version at: https://forge.glpi-project.org/projects/glpi/files
-- Copy URL and paste it in glpi.env:
+- Choose a version at: https://glpi-project.org/
+- Copy URL and paste it in glpi.env:https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz
 
 ```
-GLPI_SOURCE_URL=https://forge.glpi-project.org/attachments/download/2020/glpi-0.85.4.tar.gz
+GLPI_SOURCE_URL=
 ```
 
 - Run ```docker-compose build```
